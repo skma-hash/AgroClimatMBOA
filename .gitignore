@@ -8,6 +8,7 @@ __pycache__/
 venv/
 ENV/
 env/
+Agro_Climat_MBOA/
 
 # Byte-compiled / optimized / DLL files
 *.pyo
