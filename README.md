@@ -104,3 +104,4 @@ court...) s'affichent en rouge sous chaque champ concerné (validation Flask-WTF
 | Carte régionale interactive | **Leaflet.js** ou **Folium** | Pour la page "carte des 9 villes" évoquée précédemment comme amélioration possible |
 | Déploiement | **Gunicorn** + **Nginx**, ou simplement **Render/Railway** | `run.py` avec `debug=True` n'est pas fait pour la production |
 | Conteneurisation | **Docker** | Garantit que l'app tourne pareil chez chaque membre de l'équipe et en démo |
+
