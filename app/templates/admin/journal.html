@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titre %}Journal d'activité{% endblock %}
+{% block contenu %}
+
+<h1 class="h4 fw-bold mb-4">Journal d'activité</h1>
+
+<div class="table-responsive">
+  <table class="table table-sm bg-white">
+    <thead class="table-light"><tr><th>Date</th><th>Auteur</th><th>Action</th></tr></thead>
+    <tbody>
+      {% for e in entrees %}
+      <tr>
+        <td class="text-nowrap text-muted">{{ e.date_action.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>{{ e.auteur.nom }}</td>
+        <td>{{ e.action }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="3" class="text-center text-muted py-4">Aucune action enregistrée.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block titre %}Calendrier cultural{% endblock %}
+{% block contenu %}
+
+<h1 class="h4 fw-bold mb-1">Calendrier de semis</h1>
+<p class="text-muted mb-4">Fenêtres favorables validées par simulation du cycle complet, spécifiques à la variété.</p>
+
+<form class="row g-2 mb-4" method="get" action="#" onsubmit="return false;">
+  <div class="col-auto">
+    <select class="form-select" onchange="window.location.href='{{ url_for('calendrier.index') }}/' + this.value + '/{{ variete_selectionnee }}'">
+      {% for v in villes %}
+        <option value="{{ v }}" {% if v == ville_selectionnee %}selected{% endif %}>{{ v }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto">
+    <select class="form-select" onchange="window.location.href='{{ url_for('calendrier.index') }}/{{ ville_selectionnee }}/' + this.value">
+      {% for nom, v in varietes.items() %}
+        <option value="{{ nom }}" {% if nom == variete_selectionnee %}selected{% endif %}>
+          {{ nom.replace('_', ' ') }} ({{ v.cycle_jours_ref }}j)
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+</form>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-6">
+    <div class="carte-fonctionnalite p-3">
+      <div class="fs-3 fw-bold" style="color: var(--av-forest);">{{ nb_fenetres }}</div>
+      <div class="text-muted small text-uppercase">Jours favorables validés (cumul 16 ans)</div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="carte-fonctionnalite p-3">
+      <div class="fs-3 fw-bold" style="color: var(--av-forest);">{{ meilleur_mois }}</div>
+      <div class="text-muted small text-uppercase">Mois le plus favorable au semis</div>
+    </div>
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm">
+  <div class="card-body">
+    <h2 class="h6 text-uppercase text-muted mb-3">Répartition mensuelle — {{ ville_selectionnee }}</h2>
+    <img src="data:image/png;base64,{{ img_calendrier }}" class="img-fluid" alt="Fenêtres de semis par mois">
+  </div>
+</div>
+
+<div class="card border-0 shadow-sm mt-4">
+  <div class="card-body">
+    <h2 class="h6 text-uppercase text-muted mb-3">Calendrier conventionnel du Cameroun</h2>
+    <div class="table-responsive">
+      <table class="table table-sm align-middle mb-3">
+        <thead class="table-light">
+          <tr>
+            <th class="border-0"></th>
+            {% for mois in mois_info %}
+              <th class="text-center px-1">{{ mois.nom }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fw-semibold">Période</td>
+            {% for segment in seasons %}
+              <td class="text-center px-1" colspan="{{ segment.mois | length }}"
+                  style="background-color: {{ segment.couleur }}; color: #212529;">
+                {{ segment.nom }}
+              </td>
+            {% endfor %}
+          </tr>
+          <tr>
+            <td class="fw-semibold">Semis favorables</td>
+            {% for mois in mois_info %}
+              <td class="text-center px-1">
+                {% if mois.favorable %}
+                  <span class="badge bg-success">Oui</span>
+                {% else %}
+                  <span class="text-muted">Non</span>
+                {% endif %}
+              </td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row g-3">
+      {% for segment in seasons %}
+        <div class="col-sm-6 col-lg-3">
+          <div class="p-3 rounded" style="background-color: {{ segment.couleur }}22;">
+            <div class="fw-semibold">{{ segment.nom }}</div>
+            <small class="text-muted">{{ segment.total }} jours favorables</small>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="small text-muted mt-3">
+      <p class="mb-1"><strong>Deux saisons de semis :</strong> première saison des pluies (mars-juin) et deuxième saison des pluies (septembre-novembre).</p>
+      <p class="mb-0"><strong>Saison sèche :</strong> décembre-février et juillet-août.</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

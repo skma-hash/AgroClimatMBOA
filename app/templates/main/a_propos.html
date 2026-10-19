@@ -1,0 +1,79 @@
+{% extends "base.html" %} {% block titre %}À propos{% endblock %} {% block
+contenu %}
+
+<h2 class="mb-4">À propos d'AgroClimat-Mboa</h2>
+
+<div class="row g-4">
+  <div class="col-lg-8">
+    <h5>Le projet</h5>
+    <p class="text-muted">
+      🌾 AgroClimat-Mboa est une solution numérique développée dans le cadre
+      d'un challenge entrepreneurial universitaire, visant à soutenir une
+      agriculture résiliente au changement climatique dans la région de l'Est du
+      Cameroun. Le projet couvre 9 villes (Bertoua, Batouri, Abong-Mbang,
+      Yokadouma, Garoua-Boulaï, Moloundou, Lomié, Ndélélé, Kétté).
+    </p>
+
+    <h5 class="mt-4">Méthodologie</h5>
+    <ul class="text-muted">
+      <li>
+        <strong>Données climatiques</strong> : NASA POWER (réanalyse MERRA-2 /
+        CERES), 16 ans de données journalières.
+      </li>
+      <li>
+        <strong>Prévision saisonnière</strong> : modèle Prophet (température) et
+        scénarios empiriques (précipitation), validés par validation croisée
+        temporelle.
+      </li>
+      <li>
+        <strong>Simulation de croissance</strong> : adaptation en Python de la
+        logique agronomique du modèle STICS (phénologie, LAI, biomasse,
+        rendement), calibrée sur les rendements potentiels publiés par l'IRAD.
+      </li>
+      <li>
+        <strong>Variétés de maïs</strong> : CMS 8806, CMS 8704, Hybride 41
+        (source IRAD Cameroun).
+      </li>
+    </ul>
+
+    <h5 class="mt-4">Transparence sur la précision</h5>
+    <p class="text-muted">
+      La précision des prévisions a été mesurée honnêtement par validation
+      croisée : la température se prévoit avec une erreur moyenne d'environ 1°C,
+      tandis que la précipitation, intrinsèquement plus variable, conserve une
+      incertitude d'environ 40% — présentée sous forme de scénarios plutôt que
+      de valeurs exactes.
+    </p>
+  </div>
+
+  <div class="col-lg-4">
+    <div class="carte-fonctionnalite p-4">
+      <h6
+        class="text-uppercase text-muted"
+        style="font-size: 0.75rem; letter-spacing: 0.05em"
+      >
+        En bref
+      </h6>
+      <ul class="list-unstyled mb-0">
+        <li class="mb-2">
+          <i class="bi bi-geo-alt" style="color: var(--av-clay)"></i> 9 villes
+          couvertes
+        </li>
+        <li class="mb-2">
+          <i class="bi bi-calendar3" style="color: var(--av-clay)"></i> 16 ans
+          de données
+        </li>
+        <li class="mb-2">
+          <i class="bi bi-flower1" style="color: var(--av-clay)"></i> 3 variétés
+          de maïs
+        </li>
+        <li>
+          <i class="bi bi-mortarboard" style="color: var(--av-clay)"></i> Projet
+          étudiant
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

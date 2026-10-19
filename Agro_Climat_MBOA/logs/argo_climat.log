@@ -1,0 +1,486 @@
+2026-07-14 00:55:57,800 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 00:55:57,817 [ERROR] ===== Bertoua : ÉCHEC ('utf-8' codec can't decode byte 0xb2 in position 88: invalid start byte) =====
+2026-07-14 01:04:11,984 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 01:04:12,286 [INFO] [Bertoua] CSV chargé : 5814 lignes, 1 colonnes
+2026-07-14 01:04:12,292 [ERROR] ===== Bertoua : ÉCHEC (Colonne de date 'Date' absente du CSV) =====
+2026-07-14 01:07:42,712 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 01:07:43,193 [INFO] [Bertoua] CSV chargé : 5814 lignes, 1 colonnes
+2026-07-14 01:07:43,245 [ERROR] ===== Bertoua : ÉCHEC (Colonne de date 'Date' absente du CSV) =====
+2026-07-14 01:15:13,179 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 01:15:13,504 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 01:15:13,611 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 01:15:13,738 [WARNING] Variables absentes du CSV et ignorées : ['T_moy']
+2026-07-14 01:15:13,747 [ERROR] ===== Bertoua : ÉCHEC (Cannot interpolate with str dtype) =====
+2026-07-14 01:23:44,524 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 01:23:44,915 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 01:23:45,076 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 01:23:46,124 [ERROR] ===== Bertoua : ÉCHEC (underlying array is read-only) =====
+2026-07-14 01:26:59,627 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 01:27:00,051 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 01:27:00,273 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 01:27:00,876 [ERROR] ===== Bertoua : ÉCHEC (underlying array is read-only) =====
+2026-07-14 01:30:42,412 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 01:30:42,740 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 01:30:43,158 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 01:30:44,074 [ERROR] ===== Bertoua : ÉCHEC (underlying array is read-only) =====
+2026-07-14 01:30:44,074 [ERROR] Trace complète :
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\Agro_Climat_MBOA\train_all.py", line 20, in train_city
+    bundle = train_model(df)
+  File "C:\Users\USER\Documents\Agro_Climat_MBOA\trainer.py", line 116, in train_model
+    groups = cluster_correlated_variables(df, max_group_size=MAX_GROUP_SIZE)
+  File "C:\Users\USER\Documents\Agro_Climat_MBOA\utils.py", line 224, in cluster_correlated_variables
+    np.fill_diagonal(corr.values, 1.0)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python314\Lib\site-packages\numpy\lib\_index_tricks_impl.py", line 923, in fill_diagonal
+    a.flat[:end:step] = val
+    ~~~~~~^^^^^^^^^^^
+ValueError: underlying array is read-only
+
+2026-07-14 01:40:38,396 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 01:40:39,001 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 01:40:39,208 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 01:40:40,429 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Vent_(m/s)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-14 01:41:07,405 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-14 05:03:26,358 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(34380.909857026)), (np.int64(2), 1, np.float64(34300.53371429833)), (np.int64(3), 0, np.float64(32939.46404879773)), (np.int64(3), 1, np.float64(32959.01927486133)), (np.int64(4), 0, np.float64(32718.313804395788)), (np.int64(4), 1, np.float64(32747.763145241206))]
+2026-07-14 05:03:26,363 [INFO] Meilleur ordre retenu : (np.int64(4), 0) (AIC=32718.31)
+2026-07-14 05:03:26,504 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') ---
+2026-07-14 07:33:49,669 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 07:33:50,274 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 07:33:50,469 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 07:33:52,021 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Vent_(m/s)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-14 07:34:26,504 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-14 09:32:52,713 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 09:32:53,972 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 09:32:54,219 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 09:32:55,434 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Vent_(m/s)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-14 09:33:26,721 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-14 09:33:26,939 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-14 10:06:51,878 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 10:06:52,763 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 10:06:53,029 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 10:06:54,398 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Vent_(m/s)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-14 10:07:48,077 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-14 10:07:48,755 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-14 10:34:52,135 [INFO]      AIC=34380.91 (en 1623.4s)
+2026-07-14 10:34:52,136 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-14 11:10:41,585 [INFO]      AIC=32939.46 (en 2149.4s)
+2026-07-14 11:10:41,692 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(34380.909857026)), (np.int64(3), 0, np.float64(32939.46404879773))]
+2026-07-14 11:10:41,702 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=32939.46)
+2026-07-14 11:10:41,703 [INFO] --- Groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') terminé en 3773.6s ---
+2026-07-14 11:10:41,704 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') ---
+2026-07-14 11:10:42,088 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-14 11:20:37,444 [INFO]      AIC=195763389951.16 (en 595.4s)
+2026-07-14 11:20:37,446 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-14 12:33:44,719 [INFO]      AIC=56562.53 (en 4387.3s)
+2026-07-14 12:33:44,798 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(195763389951.1551)), (np.int64(3), 0, np.float64(56562.53229453306))]
+2026-07-14 12:33:44,799 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=56562.53)
+2026-07-14 12:33:44,803 [INFO] --- Groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') terminé en 4983.1s ---
+2026-07-14 12:33:44,807 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-14 12:33:44,835 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-14 12:33:44,835 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-14 12:33:44,872 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-14 12:33:44,878 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-14 12:33:44,885 [INFO] --- Entraînement VARMAX pour le groupe ('T_min',) ---
+2026-07-14 12:33:44,917 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-14 12:33:44,919 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_min']...
+2026-07-14 12:33:44,957 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-14 12:33:44,958 [ERROR] Échec d'entraînement pour le groupe ('T_min',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-14 12:33:44,966 [INFO] --- Entraînement VARMAX pour le groupe ('Vent_(m/s)',) ---
+2026-07-14 12:33:44,990 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-14 12:33:44,991 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['Vent_(m/s)']...
+2026-07-14 12:33:45,016 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-14 12:33:45,017 [ERROR] Échec d'entraînement pour le groupe ('Vent_(m/s)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-14 12:33:45,023 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-14 12:33:45,746 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-14 12:35:05,852 [INFO]      AIC=46122.05 (en 80.1s)
+2026-07-14 12:35:05,853 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-14 12:42:02,577 [INFO]      AIC=45687.46 (en 416.7s)
+2026-07-14 12:42:02,590 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(46122.04773384862)), (np.int64(3), 0, np.float64(45687.46071429222))]
+2026-07-14 12:42:02,591 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=45687.46)
+2026-07-14 12:42:02,592 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 497.6s ---
+2026-07-14 12:42:04,340 [INFO] [Bertoua] Modèle VARMAX sauvegardé : models/Bertoua_varmax.pkl
+2026-07-14 12:42:04,341 [INFO] ===== Bertoua : terminé avec succès =====
+2026-07-14 14:09:28,387 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-14 14:09:29,943 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-14 14:09:30,154 [INFO] [Bertoua] Prévisions générées pour 9 semaines (2026-08-01 -> 2026-10-01)
+2026-07-14 14:45:28,607 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-14 14:45:29,160 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-14 14:45:29,272 [INFO] [Bertoua] Prévisions générées pour 9 semaines (2026-08-01 -> 2026-10-01)
+2026-07-14 14:45:54,269 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-14 14:45:54,509 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-14 14:45:54,593 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-14 14:45:55,105 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-14 14:46:08,268 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-14 14:46:08,470 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-14 15:06:58,713 [INFO]      AIC=34387.21 (en 1250.2s)
+2026-07-14 15:06:58,715 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-14 15:36:30,735 [INFO]      AIC=32944.95 (en 1772.0s)
+2026-07-14 15:36:30,750 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(34387.2069019599)), (np.int64(3), 0, np.float64(32944.952479540574))]
+2026-07-14 15:36:30,750 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=32944.95)
+2026-07-14 15:36:30,751 [INFO] --- Groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') terminé en 3022.5s ---
+2026-07-14 15:36:30,753 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') ---
+2026-07-14 15:36:30,992 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-14 15:44:37,721 [INFO]      AIC=75517359013.59 (en 486.7s)
+2026-07-14 15:44:37,722 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-14 16:14:40,478 [INFO]      AIC=56576.64 (en 1802.8s)
+2026-07-14 16:14:40,497 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(75517359013.59436)), (np.int64(3), 0, np.float64(56576.64054074491))]
+2026-07-14 16:14:40,498 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=56576.64)
+2026-07-14 16:14:40,499 [INFO] --- Groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') terminé en 2289.7s ---
+2026-07-14 16:14:40,499 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-14 16:14:40,505 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-14 16:14:40,506 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-14 16:14:40,536 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-14 16:14:40,537 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-14 16:14:40,538 [INFO] --- Entraînement VARMAX pour le groupe ('T_min',) ---
+2026-07-14 16:14:40,552 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-14 16:14:40,553 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_min']...
+2026-07-14 16:14:40,573 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-14 16:14:40,574 [ERROR] Échec d'entraînement pour le groupe ('T_min',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-14 16:14:40,577 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-14 16:14:40,805 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-14 16:16:12,899 [INFO]      AIC=46137.18 (en 92.1s)
+2026-07-14 16:16:12,900 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-14 16:19:41,770 [INFO]      AIC=45702.92 (en 208.9s)
+2026-07-14 16:19:41,778 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(46137.18229189592)), (np.int64(3), 0, np.float64(45702.91951901805))]
+2026-07-14 16:19:41,779 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=45702.92)
+2026-07-14 16:19:41,780 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 301.2s ---
+2026-07-14 16:19:43,495 [INFO] [Bertoua] Modèle VARMAX sauvegardé : models/Bertoua_varmax.pkl
+2026-07-14 16:19:43,496 [INFO] ===== Bertoua : terminé avec succès =====
+2026-07-14 16:59:39,334 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-14 16:59:39,981 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-14 16:59:40,111 [INFO] [Bertoua] Prévisions générées pour 9 semaines (2026-08-01 -> 2026-10-01)
+2026-07-20 07:55:51,587 [INFO] ===== Entraînement VARMAX : Bertoua =====
+2026-07-20 07:55:51,709 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Bertoua.csv. Détecté automatiquement : ';'.
+2026-07-20 07:55:51,735 [INFO] [Bertoua] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 07:55:51,929 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 07:55:57,349 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-20 07:55:57,445 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 08:01:59,897 [INFO]      AIC=34387.21 (en 362.5s)
+2026-07-20 08:01:59,898 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 08:07:37,355 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-20 08:07:38,313 [INFO] [Bertoua] Modèle VARMAX chargé depuis models/Bertoua_varmax.pkl
+2026-07-20 08:07:38,415 [INFO] [Bertoua] Prévisions générées pour 7 semaines (2026-06-06 00:00:00 -> 2026-07-25 00:00:00)
+2026-07-20 08:10:50,649 [INFO]      AIC=32944.95 (en 530.8s)
+2026-07-20 08:10:50,658 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(34387.2069019599)), (np.int64(3), 0, np.float64(32944.952479540574))]
+2026-07-20 08:10:50,658 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=32944.95)
+2026-07-20 08:10:50,658 [INFO] --- Groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') terminé en 893.3s ---
+2026-07-20 08:10:50,658 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') ---
+2026-07-20 08:10:50,743 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 08:13:11,998 [INFO]      AIC=75517359013.59 (en 141.3s)
+2026-07-20 08:13:11,998 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 08:22:11,798 [INFO]      AIC=56576.64 (en 539.8s)
+2026-07-20 08:22:11,806 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(75517359013.59436)), (np.int64(3), 0, np.float64(56576.64054074491))]
+2026-07-20 08:22:11,806 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=56576.64)
+2026-07-20 08:22:11,807 [INFO] --- Groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') terminé en 681.1s ---
+2026-07-20 08:22:11,807 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-20 08:22:11,810 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 08:22:11,811 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-20 08:22:11,814 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 08:22:11,815 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 08:22:11,815 [INFO] --- Entraînement VARMAX pour le groupe ('T_min',) ---
+2026-07-20 08:22:11,818 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 08:22:11,818 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_min']...
+2026-07-20 08:22:11,821 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 08:22:11,822 [ERROR] Échec d'entraînement pour le groupe ('T_min',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 08:22:11,822 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 08:22:11,894 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 08:22:38,741 [INFO]      AIC=46137.18 (en 26.8s)
+2026-07-20 08:22:38,741 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 08:23:38,934 [INFO]      AIC=45702.92 (en 60.2s)
+2026-07-20 08:23:38,937 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(46137.18229189592)), (np.int64(3), 0, np.float64(45702.91951901805))]
+2026-07-20 08:23:38,938 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=45702.92)
+2026-07-20 08:23:38,938 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 87.1s ---
+2026-07-20 08:23:39,354 [INFO] [Bertoua] Modèle VARMAX sauvegardé : models/Bertoua_varmax.pkl
+2026-07-20 08:23:39,355 [INFO] ===== Bertoua : terminé avec succès =====
+2026-07-20 08:23:39,407 [INFO] ===== Entraînement VARMAX : Batouri =====
+2026-07-20 08:23:39,532 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Batouri.csv. Détecté automatiquement : ';'.
+2026-07-20 08:23:39,559 [INFO] [Batouri] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 08:23:39,740 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 08:23:45,984 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-20 08:23:46,062 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 08:30:11,319 [INFO]      AIC=35104.34 (en 385.3s)
+2026-07-20 08:30:11,320 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 08:38:57,072 [INFO]      AIC=33583.56 (en 525.8s)
+2026-07-20 08:38:57,084 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(35104.34114627776)), (np.int64(3), 0, np.float64(33583.5554366416))]
+2026-07-20 08:38:57,084 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=33583.56)
+2026-07-20 08:38:57,084 [INFO] --- Groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') terminé en 911.1s ---
+2026-07-20 08:38:57,085 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') ---
+2026-07-20 08:38:57,166 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 08:41:54,661 [INFO]      AIC=223977472943.60 (en 177.5s)
+2026-07-20 08:41:54,661 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 08:49:49,457 [INFO]      AIC=56969.22 (en 474.8s)
+2026-07-20 08:49:49,467 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(223977472943.59613)), (np.int64(3), 0, np.float64(56969.2215947715))]
+2026-07-20 08:49:49,467 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=56969.22)
+2026-07-20 08:49:49,468 [INFO] --- Groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') terminé en 652.4s ---
+2026-07-20 08:49:49,469 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-20 08:49:49,472 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 08:49:49,473 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-20 08:49:49,478 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 08:49:49,478 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 08:49:49,478 [INFO] --- Entraînement VARMAX pour le groupe ('T_min',) ---
+2026-07-20 08:49:49,481 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 08:49:49,482 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_min']...
+2026-07-20 08:49:49,486 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 08:49:49,486 [ERROR] Échec d'entraînement pour le groupe ('T_min',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 08:49:49,486 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 08:49:49,562 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 08:50:15,808 [INFO]      AIC=49280.56 (en 26.2s)
+2026-07-20 08:50:15,809 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 08:52:08,145 [INFO]      AIC=48919.65 (en 112.3s)
+2026-07-20 08:52:08,148 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(49280.56055994971)), (np.int64(3), 0, np.float64(48919.65103790672))]
+2026-07-20 08:52:08,148 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=48919.65)
+2026-07-20 08:52:08,149 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 138.7s ---
+2026-07-20 08:52:08,526 [INFO] [Batouri] Modèle VARMAX sauvegardé : models/Batouri_varmax.pkl
+2026-07-20 08:52:08,526 [INFO] ===== Batouri : terminé avec succès =====
+2026-07-20 08:52:08,568 [INFO] ===== Entraînement VARMAX : Abong_Mbang =====
+2026-07-20 08:52:08,571 [ERROR] ===== Abong_Mbang : ÉCHEC (Fichier introuvable pour Abong_Mbang : data\Abong_Mbang.csv) =====
+2026-07-20 08:52:08,572 [ERROR] Trace complète :
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\Agro_Climat_MBOA\train_all.py", line 18, in train_city
+    df_raw = load_city_data(city)
+  File "C:\Users\USER\Documents\Agro_Climat_MBOA\data_loader.py", line 31, in load_city_data
+    raise FileNotFoundError(f"Fichier introuvable pour {city} : {path}")
+FileNotFoundError: Fichier introuvable pour Abong_Mbang : data\Abong_Mbang.csv
+
+2026-07-20 08:52:08,580 [INFO] ===== Entraînement VARMAX : Yokadouma =====
+2026-07-20 08:52:08,745 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Yokadouma.csv. Détecté automatiquement : ';'.
+2026-07-20 08:52:08,762 [INFO] [Yokadouma] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 08:52:08,956 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'T_sol (°C)'], ['T_min', 'Séq. sèche (j)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 08:52:14,297 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-20 08:52:14,376 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 08:58:19,029 [INFO]      AIC=30903.84 (en 364.7s)
+2026-07-20 08:58:19,030 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 09:07:07,162 [INFO]      AIC=29338.46 (en 528.1s)
+2026-07-20 09:07:07,170 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(30903.843584952832)), (np.int64(3), 0, np.float64(29338.45603341212))]
+2026-07-20 09:07:07,171 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=29338.46)
+2026-07-20 09:07:07,171 [INFO] --- Groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') terminé en 892.9s ---
+2026-07-20 09:07:07,171 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'T_sol (°C)') ---
+2026-07-20 09:07:07,247 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'T_sol (°C)']...
+2026-07-20 09:13:11,605 [INFO]      AIC=23495.86 (en 364.4s)
+2026-07-20 09:13:11,606 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'T_sol (°C)']...
+2026-07-20 09:21:31,529 [INFO]      AIC=22736.97 (en 499.9s)
+2026-07-20 09:21:31,538 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(23495.863452228805)), (np.int64(3), 0, np.float64(22736.96631712677))]
+2026-07-20 09:21:31,538 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=22736.97)
+2026-07-20 09:21:31,538 [INFO] --- Groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'T_sol (°C)') terminé en 864.4s ---
+2026-07-20 09:21:31,538 [INFO] --- Entraînement VARMAX pour le groupe ('T_min', 'Séq. sèche (j)') ---
+2026-07-20 09:21:31,608 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_min', 'Séq. sèche (j)']...
+2026-07-20 09:22:43,071 [INFO]      AIC=41200.86 (en 71.5s)
+2026-07-20 09:22:43,071 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_min', 'Séq. sèche (j)']...
+2026-07-20 09:24:32,249 [INFO]      AIC=41085.93 (en 109.2s)
+2026-07-20 09:24:32,253 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(41200.8615749745)), (np.int64(3), 0, np.float64(41085.92508344866))]
+2026-07-20 09:24:32,254 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=41085.93)
+2026-07-20 09:24:32,254 [INFO] --- Groupe ('T_min', 'Séq. sèche (j)') terminé en 180.7s ---
+2026-07-20 09:24:32,254 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 09:24:32,333 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 09:24:58,839 [INFO]      AIC=50679.54 (en 26.5s)
+2026-07-20 09:24:58,839 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 09:26:05,386 [INFO]      AIC=50416.24 (en 66.5s)
+2026-07-20 09:26:05,390 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(50679.542470650325)), (np.int64(3), 0, np.float64(50416.241789944885))]
+2026-07-20 09:26:05,390 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=50416.24)
+2026-07-20 09:26:05,391 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 93.1s ---
+2026-07-20 09:26:05,983 [INFO] [Yokadouma] Modèle VARMAX sauvegardé : models/Yokadouma_varmax.pkl
+2026-07-20 09:26:05,983 [INFO] ===== Yokadouma : terminé avec succès =====
+2026-07-20 09:26:06,035 [INFO] ===== Entraînement VARMAX : Ndelele =====
+2026-07-20 09:26:06,274 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Ndelele.csv. Détecté automatiquement : ';'.
+2026-07-20 09:26:06,284 [INFO] [Ndelele] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 09:26:06,541 [INFO] Groupes de variables retenus : [['T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)'], ['T_sol (°C)'], ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)'], ['Séq. sèche (j)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 09:26:12,593 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)') ---
+2026-07-20 09:26:12,605 [WARNING] select_order VAR a échoué (4-th leading minor of the array is not positive definite), repli sur p=1
+2026-07-20 09:26:12,606 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)']...
+2026-07-20 09:26:24,538 [WARNING]      échec après 11.9s : Schur decomposition solver error.
+2026-07-20 09:26:24,538 [ERROR] Échec d'entraînement pour le groupe ('T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)') : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 09:26:24,538 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-20 09:26:24,541 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 09:26:24,542 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-20 09:26:24,546 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 09:26:24,546 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 09:26:24,546 [INFO] --- Entraînement VARMAX pour le groupe ('T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)') ---
+2026-07-20 09:26:24,627 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)']...
+2026-07-20 09:32:34,387 [INFO]      AIC=55959.91 (en 369.8s)
+2026-07-20 09:32:34,388 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)']...
+2026-07-20 09:41:27,080 [INFO]      AIC=54967.20 (en 532.7s)
+2026-07-20 09:41:27,089 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(55959.91411701104)), (np.int64(3), 0, np.float64(54967.20405029018))]
+2026-07-20 09:41:27,090 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=54967.20)
+2026-07-20 09:41:27,090 [INFO] --- Groupe ('T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)') terminé en 902.5s ---
+2026-07-20 09:41:27,090 [INFO] --- Entraînement VARMAX pour le groupe ('Séq. sèche (j)',) ---
+2026-07-20 09:41:27,093 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 09:41:27,093 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['Séq. sèche (j)']...
+2026-07-20 09:41:27,099 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 09:41:27,099 [ERROR] Échec d'entraînement pour le groupe ('Séq. sèche (j)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 09:41:27,099 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 09:41:27,228 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 09:41:53,704 [INFO]      AIC=49576.65 (en 26.5s)
+2026-07-20 09:41:53,714 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 09:43:06,643 [INFO]      AIC=49264.40 (en 72.9s)
+2026-07-20 09:43:06,647 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(49576.65081561947)), (np.int64(3), 0, np.float64(49264.39564948371))]
+2026-07-20 09:43:06,647 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=49264.40)
+2026-07-20 09:43:06,647 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 99.5s ---
+2026-07-20 09:43:06,862 [INFO] [Ndelele] Modèle VARMAX sauvegardé : models/Ndelele_varmax.pkl
+2026-07-20 09:43:06,862 [INFO] ===== Ndelele : terminé avec succès =====
+2026-07-20 09:43:06,887 [INFO] ===== Entraînement VARMAX : Ndelele =====
+2026-07-20 09:43:07,091 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Ndelele.csv. Détecté automatiquement : ';'.
+2026-07-20 09:43:07,103 [INFO] [Ndelele] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 09:43:07,296 [INFO] Groupes de variables retenus : [['T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)'], ['T_sol (°C)'], ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)'], ['Séq. sèche (j)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 09:43:13,371 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)') ---
+2026-07-20 09:43:13,388 [WARNING] select_order VAR a échoué (4-th leading minor of the array is not positive definite), repli sur p=1
+2026-07-20 09:43:13,389 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)']...
+2026-07-20 09:43:25,384 [WARNING]      échec après 12.0s : Schur decomposition solver error.
+2026-07-20 09:43:25,385 [ERROR] Échec d'entraînement pour le groupe ('T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)') : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 09:43:25,385 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-20 09:43:25,387 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 09:43:25,387 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-20 09:43:25,391 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 09:43:25,391 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 09:43:25,391 [INFO] --- Entraînement VARMAX pour le groupe ('T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)') ---
+2026-07-20 09:43:25,463 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)']...
+2026-07-20 09:49:21,461 [INFO]      AIC=55959.91 (en 356.0s)
+2026-07-20 09:49:21,461 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)']...
+2026-07-20 09:58:11,684 [INFO]      AIC=54967.20 (en 530.2s)
+2026-07-20 09:58:11,688 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(55959.91411701104)), (np.int64(3), 0, np.float64(54967.20405029018))]
+2026-07-20 09:58:11,689 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=54967.20)
+2026-07-20 09:58:11,689 [INFO] --- Groupe ('T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)') terminé en 886.3s ---
+2026-07-20 09:58:11,689 [INFO] --- Entraînement VARMAX pour le groupe ('Séq. sèche (j)',) ---
+2026-07-20 09:58:11,694 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 09:58:11,694 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['Séq. sèche (j)']...
+2026-07-20 09:58:11,698 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 09:58:11,699 [ERROR] Échec d'entraînement pour le groupe ('Séq. sèche (j)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 09:58:11,699 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 09:58:11,786 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 09:58:38,821 [INFO]      AIC=49576.65 (en 27.0s)
+2026-07-20 09:58:38,822 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 09:59:52,035 [INFO]      AIC=49264.40 (en 73.2s)
+2026-07-20 09:59:52,036 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(49576.65081561947)), (np.int64(3), 0, np.float64(49264.39564948371))]
+2026-07-20 09:59:52,037 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=49264.40)
+2026-07-20 09:59:52,037 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 100.3s ---
+2026-07-20 09:59:52,250 [INFO] [Ndelele] Modèle VARMAX sauvegardé : models/Ndelele_varmax.pkl
+2026-07-20 09:59:52,250 [INFO] ===== Ndelele : terminé avec succès =====
+2026-07-20 09:59:52,280 [INFO] ===== Entraînement VARMAX : Kette =====
+2026-07-20 09:59:52,413 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Kette.csv. Détecté automatiquement : ';'.
+2026-07-20 09:59:52,420 [INFO] [Kette] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 09:59:52,621 [INFO] Groupes de variables retenus : [['T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)'], ['T_sol (°C)'], ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)'], ['Séq. sèche (j)'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 09:59:57,795 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)') ---
+2026-07-20 09:59:57,815 [WARNING] select_order VAR a échoué (4-th leading minor of the array is not positive definite), repli sur p=1
+2026-07-20 09:59:57,816 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)']...
+2026-07-20 10:00:01,296 [WARNING]      échec après 3.5s : LU decomposition error.
+2026-07-20 10:00:01,297 [ERROR] Échec d'entraînement pour le groupe ('T_moy', 'T_min', 'Pression (kPa)', 'GDD (°C·j)') : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 10:00:01,297 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-20 10:00:01,300 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 10:00:01,300 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-20 10:00:01,304 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 10:00:01,304 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 10:00:01,305 [INFO] --- Entraînement VARMAX pour le groupe ('T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)') ---
+2026-07-20 10:00:01,398 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)']...
+2026-07-20 10:06:07,994 [INFO]      AIC=58241.72 (en 366.6s)
+2026-07-20 10:06:07,995 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)']...
+2026-07-20 10:14:20,287 [INFO]      AIC=57375.51 (en 492.3s)
+2026-07-20 10:14:20,291 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(58241.723660002914)), (np.int64(3), 0, np.float64(57375.51395330851))]
+2026-07-20 10:14:20,292 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=57375.51)
+2026-07-20 10:14:20,292 [INFO] --- Groupe ('T_max', 'Humidite_relative(%)', 'Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)') terminé en 859.0s ---
+2026-07-20 10:14:20,293 [INFO] --- Entraînement VARMAX pour le groupe ('Séq. sèche (j)',) ---
+2026-07-20 10:14:20,297 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 10:14:20,298 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['Séq. sèche (j)']...
+2026-07-20 10:14:20,302 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 10:14:20,303 [ERROR] Échec d'entraînement pour le groupe ('Séq. sèche (j)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 10:14:20,303 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 10:14:20,374 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 10:14:47,136 [INFO]      AIC=51703.43 (en 26.8s)
+2026-07-20 10:14:47,136 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 10:15:28,438 [INFO]      AIC=8662655.85 (en 41.3s)
+2026-07-20 10:15:28,438 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(51703.43051529667)), (np.int64(3), 0, np.float64(8662655.848376486))]
+2026-07-20 10:15:28,438 [INFO] Meilleur ordre retenu : (np.int64(2), 0) (AIC=51703.43)
+2026-07-20 10:15:28,446 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 68.1s ---
+2026-07-20 10:15:28,699 [INFO] [Kette] Modèle VARMAX sauvegardé : models/Kette_varmax.pkl
+2026-07-20 10:15:28,699 [INFO] ===== Kette : terminé avec succès =====
+2026-07-20 10:15:28,727 [INFO] ===== Entraînement VARMAX : Moloundou =====
+2026-07-20 10:15:28,998 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Moloundou.csv. Détecté automatiquement : ';'.
+2026-07-20 10:15:29,007 [INFO] [Moloundou] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 10:15:29,350 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 10:15:35,147 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-20 10:15:35,227 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 17:10:19,754 [INFO]      AIC=150938958130231.62 (en 24884.5s)
+2026-07-20 17:10:19,756 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 17:17:37,013 [INFO]      AIC=27440.09 (en 437.3s)
+2026-07-20 17:17:37,020 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(150938958130231.62)), (np.int64(3), 0, np.float64(27440.091287374576))]
+2026-07-20 17:17:37,020 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=27440.09)
+2026-07-20 17:17:37,021 [INFO] --- Groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') terminé en 25321.9s ---
+2026-07-20 17:17:37,021 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') ---
+2026-07-20 17:17:37,083 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 17:20:30,512 [INFO]      AIC=3288249171869.17 (en 173.4s)
+2026-07-20 17:20:30,512 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 17:24:40,053 [INFO]      AIC=48106.71 (en 249.5s)
+2026-07-20 17:24:40,061 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(3288249171869.165)), (np.int64(3), 0, np.float64(48106.7138895017))]
+2026-07-20 17:24:40,061 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=48106.71)
+2026-07-20 17:24:40,061 [INFO] --- Groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') terminé en 423.0s ---
+2026-07-20 17:24:40,062 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-20 17:24:40,065 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 17:24:40,066 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-20 17:24:40,069 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 17:24:40,070 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 17:24:40,070 [INFO] --- Entraînement VARMAX pour le groupe ('T_min',) ---
+2026-07-20 17:24:40,073 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 17:24:40,074 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_min']...
+2026-07-20 17:24:40,077 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 17:24:40,077 [ERROR] Échec d'entraînement pour le groupe ('T_min',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 17:24:40,078 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 17:24:40,142 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 17:25:43,252 [INFO]      AIC=51288.27 (en 63.1s)
+2026-07-20 17:25:43,252 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 17:26:05,674 [INFO]      AIC=51092.63 (en 22.4s)
+2026-07-20 17:26:05,675 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(51288.27196499612)), (np.int64(3), 0, np.float64(51092.6320474677))]
+2026-07-20 17:26:05,676 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=51092.63)
+2026-07-20 17:26:05,676 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 85.6s ---
+2026-07-20 17:26:07,051 [INFO] [Moloundou] Modèle VARMAX sauvegardé : models/Moloundou_varmax.pkl
+2026-07-20 17:26:07,051 [INFO] ===== Moloundou : terminé avec succès =====
+2026-07-20 17:26:07,107 [INFO] ===== Entraînement VARMAX : Lomie =====
+2026-07-20 17:26:07,204 [WARNING] Séparateur ',' donnait 1 seule colonne pour data\Lomie.csv. Détecté automatiquement : ';'.
+2026-07-20 17:26:07,211 [INFO] [Lomie] CSV chargé : 5814 lignes, 14 colonnes
+2026-07-20 17:26:07,355 [INFO] Groupes de variables retenus : [['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)'], ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)'], ['T_sol (°C)'], ['T_min'], ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']]
+2026-07-20 17:26:11,510 [INFO] --- Entraînement VARMAX pour le groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') ---
+2026-07-20 17:26:11,598 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 17:31:25,547 [INFO]      AIC=30298.59 (en 313.9s)
+2026-07-20 17:31:25,548 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)']...
+2026-07-20 17:38:37,209 [INFO]      AIC=28761.93 (en 431.7s)
+2026-07-20 17:38:37,215 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(30298.591958506382)), (np.int64(3), 0, np.float64(28761.928123843645))]
+2026-07-20 17:38:37,216 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=28761.93)
+2026-07-20 17:38:37,216 [INFO] --- Groupe ('T_moy', 'T_max', 'Humidite_relative(%)', 'Pression (kPa)') terminé en 745.7s ---
+2026-07-20 17:38:37,216 [INFO] --- Entraînement VARMAX pour le groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') ---
+2026-07-20 17:38:37,272 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 17:43:21,499 [INFO]      AIC=51607.92 (en 284.2s)
+2026-07-20 17:43:21,499 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)']...
+2026-07-20 17:47:50,006 [INFO]      AIC=50921.35 (en 268.5s)
+2026-07-20 17:47:50,013 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(51607.92041723241)), (np.int64(3), 0, np.float64(50921.35066530701))]
+2026-07-20 17:47:50,014 [INFO] Meilleur ordre retenu : (np.int64(3), 0) (AIC=50921.35)
+2026-07-20 17:47:50,014 [INFO] --- Groupe ('Rayonnement (MJ/m²/j)', 'Evapotransipiration Ref (mm/j)', 'GDD (°C·j)', 'Séq. sèche (j)') terminé en 552.8s ---
+2026-07-20 17:47:50,014 [INFO] --- Entraînement VARMAX pour le groupe ('T_sol (°C)',) ---
+2026-07-20 17:47:50,018 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 17:47:50,018 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_sol (°C)']...
+2026-07-20 17:47:50,021 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 17:47:50,022 [ERROR] Échec d'entraînement pour le groupe ('T_sol (°C)',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 17:47:50,022 [INFO] --- Entraînement VARMAX pour le groupe ('T_min',) ---
+2026-07-20 17:47:50,025 [WARNING] select_order VAR a échoué (Only gave one variable to VAR), repli sur p=1
+2026-07-20 17:47:50,026 [INFO]   -> Essai VARMAX(p=1, q=0) sur ['T_min']...
+2026-07-20 17:47:50,029 [WARNING]      échec après 0.0s : Only gave one variable to VAR
+2026-07-20 17:47:50,030 [ERROR] Échec d'entraînement pour le groupe ('T_min',) : Aucun ordre VARMAX n'a convergé pour ce groupe.
+2026-07-20 17:47:50,030 [INFO] --- Entraînement VARMAX pour le groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') ---
+2026-07-20 17:47:50,103 [INFO]   -> Essai VARMAX(p=2, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 17:48:40,788 [INFO]      AIC=48993.42 (en 50.7s)
+2026-07-20 17:48:40,788 [INFO]   -> Essai VARMAX(p=3, q=0) sur ['Précipitations (mm/j)', 'Bilan Hydrique (mm/j)']...
+2026-07-20 17:49:43,088 [INFO]      AIC=257152849.60 (en 62.3s)
+2026-07-20 17:49:43,088 [INFO] Ordres testés (p,q,AIC) : [(np.int64(2), 0, np.float64(48993.41679274617)), (np.int64(3), 0, np.float64(257152849.6015622))]
+2026-07-20 17:49:43,089 [INFO] Meilleur ordre retenu : (np.int64(2), 0) (AIC=48993.42)
+2026-07-20 17:49:43,092 [INFO] --- Groupe ('Précipitations (mm/j)', 'Bilan Hydrique (mm/j)') terminé en 113.1s ---
+2026-07-20 17:49:44,052 [INFO] [Lomie] Modèle VARMAX sauvegardé : models/Lomie_varmax.pkl
+2026-07-20 17:49:44,053 [INFO] ===== Lomie : terminé avec succès =====
+2026-07-20 17:49:44,101 [INFO] ===== Entraînement VARMAX : Garoua_Boulai =====
+2026-07-20 17:49:44,105 [ERROR] ===== Garoua_Boulai : ÉCHEC (Fichier introuvable pour Garoua_Boulai : data\Garoua_Boulai.csv) =====
+2026-07-20 17:49:44,106 [ERROR] Trace complète :
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\Agro_Climat_MBOA\train_all.py", line 18, in train_city
+    df_raw = load_city_data(city)
+  File "C:\Users\USER\Documents\Agro_Climat_MBOA\data_loader.py", line 31, in load_city_data
+    raise FileNotFoundError(f"Fichier introuvable pour {city} : {path}")
+FileNotFoundError: Fichier introuvable pour Garoua_Boulai : data\Garoua_Boulai.csv
+
+2026-07-20 17:49:44,109 [INFO] Bilan entraînement : 7 succès, 2 échecs
+2026-07-20 17:49:44,109 [WARNING] Villes en échec : ['Abong_Mbang', 'Garoua_Boulai']

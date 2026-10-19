@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titre %}{{ titre }}{% endblock %}
+{% block contenu %}
+
+<!--
+  Template d'erreur UNIQUE et reutilisable pour tous les codes HTTP (400, 401,
+  403, 404, 500...). Plutot que 5 templates quasi-identiques, on parametre le
+  code, le titre et le message depuis app/__init__.py::register_error_handlers.
+  Ca evite la duplication et garantit une apparence coherente pour TOUTE erreur.
+-->
+<div class="row justify-content-center text-center py-5">
+  <div class="col-md-6">
+    <div class="display-1 fw-bold" style="color: var(--av-clay); opacity: 0.85;">{{ code }}</div>
+    <h1 class="h3 fw-bold mt-2">{{ titre }}</h1>
+    <p class="text-muted mt-3 mb-4">{{ message }}</p>
+    <a href="{{ url_for('main.accueil') }}" class="btn btn-forest">
+      <i class="bi bi-house"></i> Retour à l'accueil
+    </a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block titre %}AgroClimat-Mboa{% endblock %} — Est Cameroun</title>
+
+    <!-- Bootstrap 5 (CDN) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-dark"
+      style="background-color: var(--av-forest)"
+    >
+      <div class="container">
+        <a
+          class="navbar-brand fw-semibold"
+          href="{{ url_for('main.accueil') }}"
+        >
+          🌾 AgroClimat-Mboa <span class="fw-light">— Est Cameroun</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('main.accueil') }}"
+                >Accueil</a
+              >
+            </li>
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('climat.index') }}"
+                >Climat</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('calendrier.index') }}"
+                >Calendrier</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('production.index') }}"
+                >Production</a
+              >
+            </li>
+            {% if current_user.role == 'admin' %}
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ url_for('admin.liste_utilisateurs') }}"
+                >Gestion des acteurs</a
+              >
+            </li>
+            {% endif %} {% endif %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('main.a_propos') }}"
+                >À propos</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('main.contact') }}"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            {% if current_user.is_authenticated %}
+            <li class="nav-item">
+              <span class="navbar-text me-2">
+                <span
+                  class="badge"
+                  style="background-color: var(--av-gold); color: #23261f"
+                  >{{ current_user.role }}</span
+                >
+                {{ current_user.nom }}
+              </span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('auth.logout') }}"
+                >Déconnexion</a
+              >
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('auth.login') }}"
+                >Connexion</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-4">
+      {% with messages = get_flashed_messages(with_categories=true) %} {% for
+      categorie, message in messages %} {% set classe_bootstrap = {'succes':
+      'success', 'erreur': 'danger', 'avertissement': 'warning', 'info':
+      'info'}.get(categorie, 'secondary') %}
+      <div
+        class="alert alert-{{ classe_bootstrap }} alert-dismissible fade show"
+        role="alert"
+      >
+        {{ message }}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+        ></button>
+      </div>
+      {% endfor %} {% endwith %} {% block contenu %}{% endblock %}
+    </main>
+
+    <footer
+      class="text-center py-4 mt-5 border-top"
+      style="color: #6b6b60; font-size: 0.85rem"
+    >
+      <div class="container">
+        🌾 AgroClimat-Mboa — Est Cameroun · challenge entrepreneurial-FESSCUBE
+        2026 · Données climatiques : NASA POWER · Variétés : IRAD Cameroun
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

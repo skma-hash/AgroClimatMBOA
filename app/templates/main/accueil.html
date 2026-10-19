@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block titre %}Accueil{% endblock %}
+{% block contenu %}
+
+<!-- Carrousel avec images de champs de maïs -->
+<div id="carouselCornfields" class="carousel slide mb-5" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselCornfields" data-bs-slide-to="0" class="active" aria-current="true"></button>
+    <button type="button" data-bs-target="#carouselCornfields" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselCornfields" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner rounded-3 overflow-hidden" style="max-height: 500px;">
+    <div class="carousel-item active position-relative">
+      <img src="{{ url_for('static', filename='img/cornfield1.png') }}" class="d-block w-100" alt="Champ de maïs - Matin">
+      <div class="carousel-caption d-none d-md-block text-start bg-dark bg-opacity-50 rounded-3 p-4" style="max-width: 640px; left: 2rem; bottom: 2rem;">
+        <h1 class="display-6 fw-bold">Une décision agricole plus sûre face au climat</h1>
+        <p class="lead mb-3">🌾 AgroClimat-Mboa combine 16 ans de données climatiques réelles, un modèle de prévision saisonnière
+          et une simulation de croissance du maïs pour aider à décider où, quand et quoi semer
+          dans la région de l'Est Cameroun.</p>
+        {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg">Se connecter pour commencer</a>
+        {% else %}
+        <a href="{{ url_for('climat.index') }}" class="btn btn-primary btn-lg">Voir les prévisions climatiques</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="carousel-item position-relative">
+      <img src="{{ url_for('static', filename='img/cornfield2.png') }}" class="d-block w-100" alt="Champ de maïs - Après-midi">
+      <div class="carousel-caption d-none d-md-block text-start bg-dark bg-opacity-50 rounded-3 p-4" style="max-width: 640px; left: 2rem; bottom: 2rem;">
+        <h1 class="display-6 fw-bold">Une décision agricole plus sûre face au climat</h1>
+        <p class="lead mb-3">🌾 AgroClimat-Mboa combine 16 ans de données climatiques réelles, un modèle de prévision saisonnière
+          et une simulation de croissance du maïs pour aider à décider où, quand et quoi semer
+          dans la région de l'Est Cameroun.</p>
+        {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg">Se connecter pour commencer</a>
+        {% else %}
+        <a href="{{ url_for('climat.index') }}" class="btn btn-primary btn-lg">Voir les prévisions climatiques</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="carousel-item position-relative">
+      <img src="{{ url_for('static', filename='img/cornfield3.png') }}" class="d-block w-100" alt="Champ de maïs - Fin d'après-midi">
+      <div class="carousel-caption d-none d-md-block text-start bg-dark bg-opacity-50 rounded-3 p-4" style="max-width: 640px; left: 2rem; bottom: 2rem;">
+        <h1 class="display-6 fw-bold">Une décision agricole plus sûre face au climat</h1>
+        <p class="lead mb-3">🌾 AgroClimat-Mboa combine 16 ans de données climatiques réelles, un modèle de prévision saisonnière
+          et une simulation de croissance du maïs pour aider à décider où, quand et quoi semer
+          dans la région de l'Est Cameroun.</p>
+        {% if not current_user.is_authenticated %}
+        <a href="{{ url_for('auth.login') }}" class="btn btn-primary btn-lg">Se connecter pour commencer</a>
+        {% else %}
+        <a href="{{ url_for('climat.index') }}" class="btn btn-primary btn-lg">Voir les prévisions climatiques</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselCornfields" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselCornfields" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<div class="row g-4">
+  <div class="col-md-4">
+    <div class="carte-fonctionnalite p-4 h-100">
+      <i class="bi bi-cloud-sun fs-2" style="color: var(--av-clay);"></i>
+      <h5 class="mt-3">Prévision climatique</h5>
+      <p class="text-muted mb-0">Température et précipitation prévues par ville, avec intervalles de confiance calibrés sur l'historique.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="carte-fonctionnalite p-4 h-100">
+      <i class="bi bi-calendar-check fs-2" style="color: var(--av-clay);"></i>
+      <h5 class="mt-3">Calendrier de sémis</h5>
+      <p class="text-muted mb-0">Fenêtres de sémis spécifiques à chaque variété de maïs, validées sur 16 ans de climat réel.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="carte-fonctionnalite p-4 h-100">
+      <i class="bi bi-bar-chart fs-2" style="color: var(--av-clay);"></i>
+      <h5 class="mt-3">Estimation de production</h5>
+      <p class="text-muted mb-0">Rendement, volume et valeur estimés selon la ville, la variété et la surface cultivée.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-8">
+    <h4>Pourquoi ce projet ?</h4>
+    <p class="text-muted">
+      Les producteurs de l'Est Cameroun font face à une variabilité climatique croissante :
+      un réchauffement mesurable (+0,92°C/décennie à Bertoua) et une pluviométrie de plus en plus
+      difficile à anticiper. AgroClimat-Mboa transforme les données climatiques brutes en recommandations
+      concrètes, spécifiques à chaque ville et à chaque variété de semence.
+    </p>
+  </div>
+</div>
+
+{% endblock %}

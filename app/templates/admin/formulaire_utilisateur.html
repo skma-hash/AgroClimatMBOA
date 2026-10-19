@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block titre %}{{ 'Modifier' if utilisateur else 'Nouveau' }} compte{% endblock %}
+{% block contenu %}
+
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h1 class="h4 fw-bold mb-4">{{ 'Modifier le compte' if utilisateur else 'Nouveau compte' }}</h1>
+
+    <form method="post" novalidate>
+      {{ form.hidden_tag() }}
+
+      <div class="mb-3">
+        {{ form.nom.label(class="form-label") }}
+        {{ form.nom(class="form-control" + (" is-invalid" if form.nom.errors else "")) }}
+        {% for erreur in form.nom.errors %}<div class="invalid-feedback">{{ erreur }}</div>{% endfor %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {% if utilisateur %}
+          <!-- L'email n'est jamais modifiable : c'est l'identifiant de connexion.
+               Le changer casserait le lien avec l'historique/le journal d'audit. -->
+          <input type="email" class="form-control" value="{{ utilisateur.email }}" disabled>
+        {% else %}
+          {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else "")) }}
+          {% for erreur in form.email.errors %}<div class="invalid-feedback">{{ erreur }}</div>{% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.role.label(class="form-label") }}
+        {{ form.role(class="form-select") }}
+      </div>
+
+      <div class="mb-3">
+        {{ form.zone_id.label(class="form-label") }}
+        {{ form.zone_id(class="form-select") }}
+      </div>
+
+      <div class="mb-4">
+        {{ form.mot_de_passe.label(class="form-label") }}
+        {{ form.mot_de_passe(class="form-control" + (" is-invalid" if form.mot_de_passe.errors else "")) }}
+        {% for erreur in form.mot_de_passe.errors %}<div class="invalid-feedback">{{ erreur }}</div>{% endfor %}
+        {% if utilisateur %}
+          <div class="form-text">Laisser vide pour ne pas changer le mot de passe actuel.</div>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="btn btn-forest">
+        {{ 'Enregistrer les modifications' if utilisateur else 'Créer le compte' }}
+      </button>
+      <a href="{{ url_for('admin.liste_utilisateurs') }}" class="btn btn-outline-secondary">Annuler</a>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block titre %}Connexion{% endblock %}
+{% block contenu %}
+
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-4">
+        <h1 class="h4 fw-bold mb-4">Connexion</h1>
+
+        <form method="post" novalidate>
+          {{ form.hidden_tag() }}
+
+          <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), autofocus=true) }}
+            {% for erreur in form.email.errors %}
+              <div class="invalid-feedback">{{ erreur }}</div>
+            {% endfor %}
+          </div>
+
+          <div class="mb-4">
+            {{ form.mot_de_passe.label(class="form-label") }}
+            {{ form.mot_de_passe(class="form-control" + (" is-invalid" if form.mot_de_passe.errors else "")) }}
+            {% for erreur in form.mot_de_passe.errors %}
+              <div class="invalid-feedback">{{ erreur }}</div>
+            {% endfor %}
+          </div>
+
+          <button type="submit" class="btn btn-forest w-100">Se connecter</button>
+        </form>
+
+        <p class="text-muted small mt-4 mb-0">
+          Démo — admin@agrivision.cm / admin123
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

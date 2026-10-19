@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block titre %}Contact{% endblock %}
+{% block contenu %}
+
+<div class="row justify-content-center">
+  <div class="col-md-7">
+    <h1 class="h3 fw-bold mb-3">Contactez l'équipe 🌾 AgroClimat-Mboa</h1>
+    <p class="text-muted mb-4">
+      Une question sur le projet, une suggestion, ou vous représentez une organisation
+      (coopérative, MINADER, IRAD) intéressée par une collaboration ? Écrivez-nous.
+    </p>
+
+    <!--
+      Le formulaire est genere par Flask-WTF (form.hidden_tag() insere le jeton
+      CSRF automatiquement). Chaque champ affiche ses erreurs de validation
+      juste en dessous, en rouge (classe Bootstrap is-invalid), pour un retour
+      immediat et clair a l'utilisateur -- c'est le coeur de la "gestion des
+      erreurs" cote formulaire demandee dans le cahier des charges.
+    -->
+    <form method="post" novalidate>
+      {{ form.hidden_tag() }}
+
+      <div class="mb-3">
+        {{ form.nom.label(class="form-label") }}
+        {{ form.nom(class="form-control" + (" is-invalid" if form.nom.errors else "")) }}
+        {% for erreur in form.nom.errors %}
+          <div class="invalid-feedback">{{ erreur }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.email.label(class="form-label") }}
+        {{ form.email(class="form-control" + (" is-invalid" if form.email.errors else ""), placeholder="vous@exemple.com") }}
+        {% for erreur in form.email.errors %}
+          <div class="invalid-feedback">{{ erreur }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.sujet.label(class="form-label") }}
+        {{ form.sujet(class="form-control" + (" is-invalid" if form.sujet.errors else "")) }}
+        {% for erreur in form.sujet.errors %}
+          <div class="invalid-feedback">{{ erreur }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="mb-4">
+        {{ form.message.label(class="form-label") }}
+        {{ form.message(class="form-control" + (" is-invalid" if form.message.errors else ""), rows=5) }}
+        {% for erreur in form.message.errors %}
+          <div class="invalid-feedback">{{ erreur }}</div>
+        {% endfor %}
+      </div>
+
+      <button type="submit" class="btn btn-forest px-4">
+        <i class="bi bi-send"></i> Envoyer le message
+      </button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

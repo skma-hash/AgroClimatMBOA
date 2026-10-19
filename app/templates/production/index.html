@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block titre %}Production{% endblock %}
+{% block contenu %}
+
+<h1 class="h4 fw-bold mb-1">Estimation de production</h1>
+<p class="text-muted mb-4">Rendement simulé (logique STICS simplifiée, calibrée sur les potentiels IRAD).</p>
+
+<form class="row g-2 mb-4 align-items-center" method="get">
+  <div class="col-auto">
+    <select class="form-select" onchange="window.location.href='{{ url_for('production.index') }}/' + this.value + '?surface={{ surface_ha }}'">
+      {% for v in villes %}
+        <option value="{{ v }}" {% if v == ville_selectionnee %}selected{% endif %}>{{ v }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto">
+    <div class="input-group">
+      <input type="number" step="0.1" min="0.1" name="surface" class="form-control" value="{{ surface_ha }}" style="max-width: 120px;">
+      <span class="input-group-text">ha</span>
+      <button class="btn btn-outline-secondary" type="submit">Recalculer</button>
+    </div>
+  </div>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-hover bg-white align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>Variété</th><th>Zone recommandée</th><th>Rendement (t/ha)</th>
+        <th>Pluie suffisante</th><th>Volume ({{ surface_ha }} ha)</th><th>Valeur estimée</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in lignes %}
+      <tr class="{{ 'table-success' if l.recommandee else '' }}">
+        <td>
+          {{ l.nom.replace('_', ' ') }}
+          {% if l.recommandee %}<span class="badge text-bg-success ms-1">Recommandée</span>{% endif %}
+        </td>
+        <td class="text-muted small">{{ l.label }}</td>
+        <td>{{ l.rendement }} ± {{ l.ecart_type }}</td>
+        <td>{{ l.precip_ok_pct }}%</td>
+        <td>{{ l.volume_tonnes }} t</td>
+        <td>{{ l.valeur_millions_fcfa }} M FCFA</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-info">
+  <i class="bi bi-info-circle"></i>
+  La variété à cycle long (Hybride 41) simule le rendement le plus élevé, mais elle a été développée
+  pour les hautes terres, pas pour l'Est Cameroun : elle est présentée comme potentiel théorique,
+  pas comme recommandation agronomique validée.
+</div>
+
+{% endblock %}

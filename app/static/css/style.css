@@ -1,0 +1,87 @@
+/*
+  Palette : ancree dans le paysage de l'Est Cameroun --
+  vert foret (couvert forestier), ocre/or (saison seche, cereales),
+  terre cuite (sol ferralitique rouge caracteristique de la region).
+  On evite deliberement le violet/bleu generique "startup tech" pour rester
+  fidele au sujet (agriculture, terroir).
+*/
+:root {
+  --av-bg: #FAF6EF;
+  --av-ink: #23261F;
+  --av-forest: #2F4B3C;
+  --av-forest-dark: #223a2d;
+  --av-clay: #8C4A2F;
+  --av-gold: #D9A441;
+  --av-line: #DDD3C0;
+}
+
+body {
+  background-color: var(--av-bg);
+  color: var(--av-ink);
+}
+
+.btn-primary {
+  background-color: var(--av-forest);
+  border-color: var(--av-forest);
+}
+.btn-primary:hover, .btn-primary:focus {
+  background-color: var(--av-forest-dark);
+  border-color: var(--av-forest-dark);
+}
+
+.btn-outline-primary {
+  color: var(--av-forest);
+  border-color: var(--av-forest);
+}
+.btn-outline-primary:hover {
+  background-color: var(--av-forest);
+  border-color: var(--av-forest);
+}
+
+a { color: var(--av-forest); }
+
+.hero {
+  background: linear-gradient(135deg, var(--av-forest) 0%, var(--av-forest-dark) 100%);
+  color: var(--av-bg);
+  border-radius: 0.5rem;
+  padding: 3.5rem 2.5rem;
+}
+
+.carte-fonctionnalite {
+  border: 1px solid var(--av-line);
+  border-left: 4px solid var(--av-gold);
+  border-radius: 0.35rem;
+  background: white;
+  transition: transform 0.15s ease;
+}
+.carte-fonctionnalite:hover {
+  transform: translateY(-2px);
+}
+
+.indicateur {
+  border-left: 3px solid var(--av-gold);
+  background: white;
+}
+
+.badge-recommandee {
+  background-color: var(--av-forest);
+}
+
+/* Bouton d'action principal (creation, connexion, envoi de formulaire) --
+   distinct de .btn-primary pour ne pas dependre du remplacement Bootstrap
+   ci-dessus si un template utilise btn-primary a une autre fin. */
+.btn-forest {
+  background-color: var(--av-forest);
+  border-color: var(--av-forest);
+  color: white;
+}
+.btn-forest:hover, .btn-forest:focus {
+  background-color: var(--av-forest-dark);
+  border-color: var(--av-forest-dark);
+  color: white;
+}
+
+/* Respect des preferences d'accessibilite : reduire les animations si demande */
+@media (prefers-reduced-motion: reduce) {
+  .carte-fonctionnalite { transition: none; }
+}
